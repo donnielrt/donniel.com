@@ -3,6 +3,7 @@
 // Documentation can be found at http://support.ghost.org/config/
 
 var path = require('path'),
+    env = require('./env.json'),
     config;
 
 config = {
@@ -16,8 +17,8 @@ config = {
             options: {
                 service: 'Mailgun',
                 auth: {
-                    user: 'postmaster@donniel.com',
-                    pass: 'c4e220519d665c2dd00eb4b581e53a0d'
+                    user: env["production"].GHOST_SMTP_USERNAME,
+                    pass: env["production"].GHOST_SMTP_PASSWORD
                 }
             }
         },
@@ -48,8 +49,8 @@ config = {
             options: {
                 service: 'Mailgun',
                 auth: {
-                    user: 'postmaster@donniel.com',
-                    pass: 'c4e220519d665c2dd00eb4b581e53a0d'
+                    user: env["development"].GHOST_SMTP_USERNAME,
+                    pass: env["development"].GHOST_SMTP_PASSWORD
                 }
             }
         },
