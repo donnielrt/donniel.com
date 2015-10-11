@@ -27,8 +27,8 @@ config = {
             client: 'mysql',
             connection: {
                 host: 'localhost',
-                user: process.env.GHOST_DB_USER,
-                password: process.env.GHOST_DB_PASSWORD,
+                user: env["production"].GHOST_DB_USER,
+                password: env["production"].GHOST_DB_PASSWORD,
                 database: 'ghost',
                 charset: 'utf8'
             }
