@@ -22,12 +22,16 @@ config = {
                 }
             }
         },
+
         database: {
-            client: 'sqlite3',
+            client: 'mysql',
             connection: {
-                filename: path.join(__dirname, '/content/data/ghost.db')
-            },
-            debug: false
+                host: 'localhost',
+                user: process.env.GHOST_DB_USER,
+                password: process.env.GHOST_DB_PASSWORD,
+                database: 'ghost',
+                charset: 'utf8'
+            }
         },
 
         server: {
@@ -56,12 +60,17 @@ config = {
         },
 
         database: {
-            client: 'sqlite3',
+            client: 'mysql',
             connection: {
-                filename: path.join(__dirname, '/content/data/ghost.db')
+                host: 'localhost',
+                user: 'ghost',
+                password: 'password',
+                database: 'ghost',
+                charset: 'utf8'
             },
-            debug: false
+            debug: true
         },
+
         server: {
             // Host to be passed to node's `net.Server#listen()`
             host: '127.0.0.1',
